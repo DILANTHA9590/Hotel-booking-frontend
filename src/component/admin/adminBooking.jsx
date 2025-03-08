@@ -1,35 +1,37 @@
-import { useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 export default function AdminBooking() {
-  const [bookings, setBookings] = useState([
-    {
-      bookingId: "B001",
-      roomId: "R101",
-      email: "user1@example.com",
-      status: "pending",
-      reason: "N/A",
-      start: "2025-04-01",
-      end: "2025-04-05",
-      notes: "First booking",
-      timeStamps: "2025-03-06",
-    },
-    {
-      bookingId: "B002",
-      roomId: "R102",
-      email: "user2@example.com",
-      status: "confirmed",
-      reason: "N/A",
-      start: "2025-05-10",
-      end: "2025-05-15",
-      notes: "VIP booking",
-      timeStamps: "2025-03-07",
-    },
-  ]);
-  const [arr, setarr] = useState([{ number: 2 }, { number: 3 }, { number: 4 }]);
-  console.log(arr);
-  function testone() {
-    setarr((prevarr) => prevarr.map((ar) => (ar.number += 1)));
-  }
+  const [bookings, setBookings] = useState([]);
+  const [loding, setloading] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      return navigate("/login");
+    }
+
+    axios
+      .get("http://localhost:5000/api/booking", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        setBookings(res.data.bookings);
+        if (!setBookings) {
+          toast.success("No bookings available at the moment.");
+        }
+
+        // console.log(res.data.bookings);
+      });
+
+    console.log(token);
+  }, []);
 
   return (
     <>
@@ -51,7 +53,7 @@ export default function AdminBooking() {
               </tr>
             </thead>
             <tbody className="text-gray-600 text-sm font-light">
-              {/* Row 1 */}
+              Row 1
               {bookings.map((booking, index) => (
                 <tr
                   key={booking.bookingId}
@@ -71,8 +73,6 @@ export default function AdminBooking() {
             </tbody>
           </table>
         </div>
-
-        <button onClick={testone}> biii</button>
       </div>
     </>
   );

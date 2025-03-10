@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
 import { MdDelete } from "react-icons/md";
+import AdminBookingPanel from "./admin-panel-components/adminBookingPanel";
 
 export default function AdminBooking() {
   const [bookings, setBookings] = useState([]);
@@ -73,13 +74,14 @@ export default function AdminBooking() {
     }
 
     if (newStatus === "") {
-      return; 
+      return;
     }
 
     setBookings((prevBookings) =>
       prevBookings.map((booking) =>
         booking.bookingId === bookingId
-          ? { ...booking, status: newStatus } 
+          ? { ...booking, status: newStatus }
+          : booking
       )
     );
 
@@ -124,53 +126,11 @@ export default function AdminBooking() {
                   key={booking.bookingId}
                   className="border-b border-gray-200 hover:bg-gray-100"
                 >
-                  <td className="py-3 px-6 text-left border">
-                    {booking.bookingId}
-                  </td>
-                  <td className="py-3 px-6 text-left border">
-                    {booking.roomId}
-                  </td>
-                  <td className="py-3 px-6 text-left border">
-                    {booking.email}
-                  </td>
-                  <td className="py-3 px-6 text-left border">
-                    <select
-                      name="status"
-                      id="status"
-                      className="w-[80px]"
-                      value={booking.status}
-                      onChange={(e) =>
-                        handleStatusChange(booking.bookingId, e.target.value)
-                      }
-                    >
-                      <option value="">Status</option>
-                      <option value="Confirm">Confirmed</option>
-                      <option value="Reject">Rejected</option>
-                      <option value="Processing">Processing</option>
-                    </select>
-                  </td>
-
-                  <td className="py-3 px-6 text-left border">
-                    {booking.reason}
-                  </td>
-                  <td className="py-3 px-6 text-left border">
-                    {booking.start}
-                  </td>
-                  <td className="py-3 px-6 text-left border">{booking.end}</td>
-                  <td className="py-3 px-6 text-left border">
-                    {booking.notes}
-                  </td>
-                  <td className="py-3 px-6 text-left border">
-                    {booking.timeStamps}
-                  </td>
-                  <td className="py-3 px-6 text-left border">
-                    <button className="py-3 px-6 ">
-                      <MdDelete
-                        className=" text-center"
-                        onClick={() => deleteBooking(booking.bookingId)}
-                      />
-                    </button>
-                  </td>
+                  <AdminBookingPanel
+                    {...booking}
+                    deleteBooking={deleteBooking}
+                    handleStatusChange={handleStatusChange}
+                  />
                 </tr>
               ))}
             </tbody>

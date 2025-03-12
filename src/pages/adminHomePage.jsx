@@ -13,7 +13,7 @@ export default function AdminHomePage() {
   return (
     <>
       <div className="bg-gray-500 w-screen h-screen flex p-l">
-        <div className=" h-screen flex flex-col w-[40%] bg-blue-500 pl-4 gap-y-4 font-bold color-g text-white text-2xl">
+        <div className=" h-screen flex flex-col w-[20%] bg-blue-500 pl-4 gap-y-4 font-bold color-g text-white text-2xl">
           <div>
             <Link to="/admin/booking">Booking</Link>
           </div>

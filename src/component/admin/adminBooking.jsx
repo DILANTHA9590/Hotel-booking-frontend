@@ -2,7 +2,6 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
-import { MdDelete } from "react-icons/md";
 import AdminBookingPanel from "./admin-panel-components/adminBookingPanel";
 
 export default function AdminBooking() {
@@ -46,6 +45,7 @@ export default function AdminBooking() {
     console.log(token);
   }, [loading]);
 
+  //DELETE BOOKINS
   function deleteBooking(bookingId) {
     const token = localStorage.getItem("token");
 
@@ -65,6 +65,7 @@ export default function AdminBooking() {
       });
   }
 
+  //STATUS CHNAGE
   function handleStatusChange(bookingId, newStatus) {
     const token = localStorage.getItem("token");
 

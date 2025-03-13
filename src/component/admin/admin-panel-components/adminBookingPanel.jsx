@@ -1,7 +1,5 @@
 import { MdDelete } from "react-icons/md";
 export default function AdminBookingPanel(props) {
-  console.log(props);
-
   const booking = props;
   return (
     <>

@@ -8,6 +8,7 @@ import AdminFeedback from "../component/admin/adminFeedback";
 import AdminTicketing from "../component/admin/adminTicketing";
 import AdminGalleryItem from "../component/admin/AdminGalleryItem";
 import AdminUsers from "../component/admin/AdminUsers";
+import AdminEditCategory from "../component/admin/admin-panel-components/editCategoryItem";
 
 export default function AdminHomePage() {
   return (
@@ -23,6 +24,7 @@ export default function AdminHomePage() {
           <Link to="/admin/customer">Customers</Link>
           <Link to="/admin/customerreview">Feedback</Link>
           <Link to="/admin/ticketing">Ticketing</Link>
+          <Link to="/admin/editcategory"></Link>
         </div>
         <div className="h-screen flex  w-[80%] bg-blue-400">
           <Routes>
@@ -33,6 +35,7 @@ export default function AdminHomePage() {
             <Route path="/customer" element={<AdminUsers />} />
             <Route path="/customerreview" element={<AdminFeedback />} />
             <Route path="/ticketing" element={<AdminTicketing />} />
+            <Route path="/editcategory" element={<AdminEditCategory />} />
           </Routes>
         </div>
       </div>

@@ -6,7 +6,6 @@ import AdminBookingPanel from "./admin-panel-components/adminBookingPanel";
 
 export default function AdminBooking() {
   const [bookings, setBookings] = useState([]);
-  console.log(bookings);
 
   const [loading, setloading] = useState(false);
   const [status, setStatus] = useState(bookings.status);
@@ -41,8 +40,6 @@ export default function AdminBooking() {
           console.log(error);
         });
     }
-
-    console.log(token);
   }, [loading]);
 
   //DELETE BOOKINS

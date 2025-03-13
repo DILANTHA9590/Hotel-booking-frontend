@@ -36,6 +36,7 @@ export default function AdminHomePage() {
             <Route path="/customerreview" element={<AdminFeedback />} />
             <Route path="/ticketing" element={<AdminTicketing />} />
             <Route path="/editcategory" element={<AdminEditCategory />} />
+            <Route path="/Gallery" element={<AdminGalleryItem />} />
           </Routes>
         </div>
       </div>

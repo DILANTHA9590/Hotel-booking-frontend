@@ -67,10 +67,10 @@ export default function AdminCategories() {
           <table className="min-w-full bg-gray-200s shadow-md rounded-lg">
             <thead>
               <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal border">
-                <th className="py-3 px-6 text-left border">description</th>
+                <th className="py-3 px-6 text-left border">Category name</th>
                 <th className="py-3 px-6 text-left">feature</th>
                 <th className="py-3 px-6 text-left border">Image</th>
-                <th className="py-3 px-6 text-left border">Name</th>
+                <th className="py-3 px-6 text-left border">Description</th>
                 <th className="py-3 px-6 text-left border">Price</th>
 
                 <th className="py-3 px-6 text-left border">Delete</th>
@@ -95,7 +95,7 @@ export default function AdminCategories() {
                   </td>
 
                   <td className="py-3 px-6 text-left border">
-                    {category.name}
+                    {category.description}
                   </td>
                   <td className="py-3 px-6 text-left border">
                     {category.price}
@@ -109,7 +109,14 @@ export default function AdminCategories() {
                     </button>
                   </td>
                   <td className="py-3 px-6 text-left border">
-                    <button className="py-3 px-6">
+                    <button
+                      className="py-3 px-6 "
+                      onClick={() => {
+                        navigate("/admin/editcategory", {
+                          state: { category: category },
+                        });
+                      }}
+                    >
                       <AiFillEdit />
                     </button>
                   </td>

@@ -87,7 +87,7 @@ export default function AdminGalleryItem() {
                     {galleryItem.name}
                   </td>
 
-                  <td className="py-3 px-6 text-left border">
+                  <td className="py-3 px-6 text-left border max-w-[200px] truncate overflow-hidden">
                     {galleryItem.image}
                   </td>
                   <td className="py-3 px-6 text-left border">
@@ -97,7 +97,7 @@ export default function AdminGalleryItem() {
                   <td className="py-3 px-6  border text-center">
                     <button
                       className="py-3 px-6"
-                      onClick={() => handleOnDelete(galleryItem._id)}
+                      onClick={() => navigate("/admin/addgallery")}
                     >
                       <IoMdAdd className="w-[25px] h-[25px] text-green-400 cursor-pointer" />
                     </button>
@@ -107,7 +107,7 @@ export default function AdminGalleryItem() {
                     <button
                       className="py-3 px-6 "
                       onClick={() => {
-                        navigate("", {
+                        navigate("/admin/editgallery", {
                           state: { galleryItem: galleryItem },
                         });
                       }}

@@ -9,6 +9,9 @@ import AdminTicketing from "../component/admin/adminTicketing";
 import AdminGalleryItem from "../component/admin/AdminGalleryItem";
 import AdminUsers from "../component/admin/AdminUsers";
 import AdminEditCategory from "../component/admin/admin-panel-components/editCategoryItem";
+import AddGallery from "../component/admin/admin-panel-components/addGallery";
+import AdminAddGallery from "../component/admin/admin-panel-components/addGallery";
+import AdminEditGallery from "../component/admin/admin-panel-components/adminEditGallery";
 
 export default function AdminHomePage() {
   return (
@@ -37,6 +40,8 @@ export default function AdminHomePage() {
             <Route path="/ticketing" element={<AdminTicketing />} />
             <Route path="/editcategory" element={<AdminEditCategory />} />
             <Route path="/Gallery" element={<AdminGalleryItem />} />
+            <Route path="/addgallery" element={<AdminAddGallery />} />
+            <Route path="/editgallery" element={<AdminEditGallery />} />
           </Routes>
         </div>
       </div>

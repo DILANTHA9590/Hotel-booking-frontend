@@ -10,12 +10,8 @@ export default function AdminLoginPage() {
   const navigate = useNavigate();
 
   function onLoginClick() {
-    // const loginData = {
-    //   email: email,
-    //   password: password,
-    // };
     axios
-      .post("http://localhost:5000/api/users/login", {
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/users/login`, {
         email: email,
         password: password,
       })
@@ -29,11 +25,9 @@ export default function AdminLoginPage() {
         } else {
           navigate("/");
         }
-
-        // const token = localStorage.getItem("token");
       })
-      .catch((err) => {
-        toast.error("Incorrect email or password");
+      .catch((error) => {
+        toast.error("error", error.response.data);
       });
   }
 
@@ -88,11 +82,3 @@ export default function AdminLoginPage() {
     </>
   );
 }
-
-// admin
-// "email": "sse@gmail.com",
-//   "password": "dilantha",
-
-// customer
-// "email": "ssse@gmail.com",
-// "password": "dilantha",

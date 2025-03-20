@@ -47,7 +47,7 @@ export default function AdminBooking() {
     const token = localStorage.getItem("token");
 
     axios
-      .delete(`http://localhost:5000/api/booking/${bookingId}`, {
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/api/booking/${bookingId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -84,12 +84,15 @@ export default function AdminBooking() {
     );
 
     axios
-      .put(`http://localhost:5000/api/booking/status/${bookingId}`, {
-        newStatus,
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .put(
+        `${import.meta.env.VITE_BACKEND_URL}/api/booking/status/${bookingId}`,
+        {
+          newStatus,
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((res) => {
         toast.success(res.data.message);
       })

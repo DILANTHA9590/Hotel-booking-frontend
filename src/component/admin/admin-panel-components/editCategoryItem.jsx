@@ -23,9 +23,7 @@ export default function AdminEditCategory() {
     if (!token) {
       navigate("/login");
     }
-    console.log(token);
 
-    console.log("name", name);
     const features = feature.split(",");
 
     const promiseArrey = [];
@@ -50,11 +48,15 @@ export default function AdminEditCategory() {
     }
 
     axios
-      .put(`http://localhost:5000/api/catagories/${name}`, updatecategorry, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .put(
+        `${import.meta.env.VITE_BACKEND_URL}/api/catagories/${name}`,
+        updatecategorry,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((res) => {
         toast.success(`${name} Updated successfully`);
         navigate("/admin/category");

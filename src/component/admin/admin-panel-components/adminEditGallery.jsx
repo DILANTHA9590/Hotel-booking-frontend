@@ -1,79 +1,74 @@
 import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import uplaodMediaSuperbase from "../../../pages/utils/mediaUpload";
-export default function AdminAddGallery() {
+
+export default function AdminEditGallery() {
   const navigate = useNavigate();
-  const [name, setName] = useState("");
+  const location = useLocation();
+  const galleryItem = location.state.galleryItem;
+  const [name, setName] = useState(galleryItem.name);
   const [image, setImage] = useState([]);
-  const [description, setDescription] = useState("");
-  const [loaded, setloaded] = useState(true);
+  const [description, setDescription] = useState(galleryItem.description);
 
-  async function handleAddGalley() {
+  const [loaded, setLoaded] = useState(true);
+
+  async function Onclickupdate(id) {
     const token = localStorage.getItem("token");
-
     if (!token) {
-      return;
-    }
-    if (!name) {
-      toast.error("Name field cannot be empty. Please enter a valid name.");
-      return;
-    }
-
-    if (!image || image.length === 0) {
-      toast.error("Image field cannot be empty. Please enter a valid name.");
+      navigate("/login");
+      toast.error("please login to admin account updtate details");
       return;
     }
 
-    if (!description || description.trim() === "") {
-      toast.error(
-        "Description field cannot be empty. Please enter a valid name."
-      );
-      return;
-    }
-
-    const promiseArray = [];
-    let imgUrl;
-
-    for (let i = 0; i < image.length; i++) {
-      promiseArray[i] = uplaodMediaSuperbase(image[i]);
-    }
-
-    try {
-      setloaded(false);
-      imgUrl = await Promise.all(promiseArray);
-      setloaded(true);
-
-      setloaded(true);
-    } catch (error) {
-      toast.error(
-        "Something went wrong uploading your image. Please check your internet connection."
-      );
-      console.log("upload Error", error.message);
-    }
-
-    const galleryData = {
+    const updateGalleryData = {
       name: name,
-      image: imgUrl,
       description: description,
     };
 
-    axios
-      .post(import.meta.env.VITE_BACKEND_URL + "/api/gallery", galleryData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => {
-        toast.success("Gallery item added successfully");
-        console.log(res);
-        navigate("/admin/gallery");
-      })
-      .catch((err) => {
-        toast.error("something went a  wrong please try again");
-        console.log("ERROR", err);
-      });
+    let promiseArrey = [];
+    let imgUrl = "";
+
+    try {
+      if (image.length > 0) {
+        for (let i = 0; i < image.length; i++) {
+          promiseArrey[i] = uplaodMediaSuperbase(image[i]);
+        }
+        setLoaded(false);
+        imgUrl = await Promise.all(promiseArrey);
+        setLoaded(true);
+
+        updateGalleryData.image = imgUrl;
+      }
+
+      console.log("update data", updateGalleryData);
+      axios;
+      // .put(
+      //   import.meta.env.VITE_BACKEND_URL + "/api/users/" + customer.email,
+      //   updateUserData,
+      //   {
+      //     headers: {
+      //       Authorization: `Bearer ${token}`,
+      //     },
+      //   }
+
+      await axios.put(
+        `${import.meta.env.VITE_BACKEND_URL}/api/gallery/${id}`,
+        updateGalleryData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      navigate("/admin/gallery");
+      toast.success("Gallery Item Updated successfully");
+    } catch (error) {
+      console.error(error);
+      toast.error("Failed to update gallery item. Please try again.");
+    }
   }
 
   return (
@@ -81,7 +76,7 @@ export default function AdminAddGallery() {
       <div className=" bg-gray-100 py-10 w-full overflow-hidden overflow-y-scroll h-full flex flex-col justify-center">
         <div className="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-lg">
           <h2 className="text-2xl font-semibold text-center text-gray-800 mb-6">
-            Add Gellery
+            Edit Gellery
           </h2>
 
           <div className="space-y-4">
@@ -92,6 +87,7 @@ export default function AdminAddGallery() {
                 Name
               </label>
               <input
+                disabled
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -108,7 +104,6 @@ export default function AdminAddGallery() {
                 </label>
                 <input
                   type="file"
-                  multiple
                   onChange={(e) => setImage(e.target.files)}
                   className="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
@@ -142,11 +137,11 @@ export default function AdminAddGallery() {
             {/* Submit Button */}
             <div className="flex justify-center mt-6">
               <button
-                onClick={handleAddGalley}
+                onClick={() => Onclickupdate(galleryItem._id)}
                 type="submit"
                 className="bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
               >
-                Add Gallery
+                Update Gallery
               </button>
             </div>
           </div>

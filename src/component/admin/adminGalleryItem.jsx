@@ -21,11 +21,15 @@ export default function AdminGalleryItem() {
 
     if (!loaded) {
       axios
-        .get("http://localhost:5000/api/gallery", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
+        .get(
+          `
+          ${import.meta.env.VITE_BACKEND_URL}/api/gallery`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
         .then((res) => {
           setGalleryItem(res.data.gallery);
           setloaded(true);

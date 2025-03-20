@@ -21,7 +21,7 @@ export default function AdminCategories() {
       }
 
       axios
-        .get("http://localhost:5000/api/catagories", {
+        .get(`${import.meta.env.VITE_BACKEND_URL}/api/catagories`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -45,7 +45,7 @@ export default function AdminCategories() {
     }
 
     axios
-      .delete(`http://localhost:5000/api/catagories/${id}`, {
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/api/catagories/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

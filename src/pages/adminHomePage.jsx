@@ -6,12 +6,13 @@ import AdminCategories from "../component/admin/adminCategoies";
 
 import AdminFeedback from "../component/admin/adminFeedback";
 import AdminTicketing from "../component/admin/adminTicketing";
-import AdminGalleryItem from "../component/admin/AdminGalleryItem";
-import AdminUsers from "../component/admin/AdminUsers";
+
 import AdminEditCategory from "../component/admin/admin-panel-components/editCategoryItem";
 import AddGallery from "../component/admin/admin-panel-components/addGallery";
 import AdminAddGallery from "../component/admin/admin-panel-components/addGallery";
 import AdminEditGallery from "../component/admin/admin-panel-components/adminEditGallery";
+import AdminGalleryItem from "../component/admin/adminGalleryItem";
+import AdminUsers from "../component/admin/adminUsers";
 
 export default function AdminHomePage() {
   return (

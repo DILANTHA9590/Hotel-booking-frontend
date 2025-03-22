@@ -1,22 +1,23 @@
+import { Link, Routes } from "react-router";
+
+import Navigationbar from "../component/navigationbar";
+import { Route } from "react-router";
+import About from "../component/about";
+import Header from "../component/header";
+
 export default function HomePage() {
   return (
     <>
-      <div className="w-full h-screen bg-blue-500 ">
-        <div className="bg-white  flex items-center justify-between h-[10vh] w-[700px] rounded-b-sm  p-4  ">
-          <input type="date" />
-          <input type="date" />
+      <div className="w-full h-screen bg-[url('/headerbackground.jpg')] bg-cover bg-center relative   ">
+        <div className="absolute inset-0 bg-black/15 pointer-events-none z-0"></div>
 
-          <select name="" id="">
-            <option value="">Select Room Type</option>
-            <option value="Luxury">Luxury</option>
-            <option value="Standard">Standard</option>
-            <option value="Normal">Normal</option>
-          </select>
+        <section>
+          <Navigationbar />
+        </section>
 
-          <button>Book Now</button>
+        <div className="w-full h-[calc(100vh-20vh)]">
+          <Header />
         </div>
-
-        <h1 className="text-8xl text-center">Welcome</h1>
       </div>
     </>
   );

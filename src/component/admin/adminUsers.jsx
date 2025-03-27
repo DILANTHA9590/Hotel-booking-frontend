@@ -5,8 +5,13 @@ import { MdDelete } from "react-icons/md";
 import { AiFillEdit } from "react-icons/ai";
 import { IoMdAdd } from "react-icons/io";
 import toast from "react-hot-toast";
+import { MdArrowBackIosNew } from "react-icons/md";
+import { IoIosArrowForward } from "react-icons/io";
 
 export default function AdminUsers() {
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState();
+
   const navigate = useNavigate();
   let number = 1;
 
@@ -20,15 +25,25 @@ export default function AdminUsers() {
     }
 
     axios
-      .get(import.meta.env.VITE_BACKEND_URL + "/api/users", {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      .post(
+        import.meta.env.VITE_BACKEND_URL + "/api/users/getall",
+        {
+          page: page,
+          pageSize: 10,
         },
-      })
+
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((res) => {
         setUsers(res.data.users);
+        console.log(res);
+        setTotalPages(res.data.pagination.totalPages);
       });
-  }, []);
+  }, [page]);
 
   async function blockUser(email, status) {
     const token = localStorage.getItem("token");
@@ -152,6 +167,36 @@ export default function AdminUsers() {
               ))}
             </tbody>
           </table>
+
+          <div className="flex gap-x-5 justify-center p-3">
+            <button
+              onClick={() => setPage((prevPage) => Math.max(prevPage - 1, 1))}
+            >
+              <MdArrowBackIosNew />
+            </button>
+            {Array.from({ length: totalPages }).map((item, index) => {
+              return (
+                <div>
+                  <button
+                    onClick={() => setPage(index + 1)}
+                    key={index}
+                    className={`p-6 bg-blue-400 w-[40px] h-[40px] flex items-center justify-center text 
+                    ${page == index + 1 && `border-2 border-black`}`}
+                  >
+                    {index + 1}
+                  </button>
+                </div>
+              );
+            })}
+
+            <button
+              onClick={() =>
+                setPage((prevPage) => Math.min(prevPage + 1, totalPages))
+              }
+            >
+              <IoIosArrowForward />
+            </button>
+          </div>
         </div>
       </div>
     </>

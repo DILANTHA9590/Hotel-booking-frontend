@@ -58,6 +58,7 @@ export default function HomePage() {
             {/* Card 1 */}
             <div className=" bg-white relative z-50">
               <img
+                className="p-4"
                 src="https://th.bing.com/th/id/OIP.yybHXZkwrX_eXpNERNrMzAHaE7?rs=1&pid=ImgDetMain"
                 alt=""
               />
@@ -66,7 +67,7 @@ export default function HomePage() {
               </h2>
               <div className="flex justify-between">
                 <div>
-                  <div className="flex justify-center items-center bg-secondry p-4 rounded-4xl h-[40px]">
+                  <div className="flex justify-center items-center bg-secondry p-4 rounded-4xl h-[40px] ml-4">
                     <Link>Explore more</Link>
                     <FaLongArrowAltRight />
                   </div>
@@ -81,6 +82,7 @@ export default function HomePage() {
             {/* Card 2 */}
             <div className=" bg-white relative z-50">
               <img
+                className="p-4"
                 src="https://th.bing.com/th/id/OIP.yybHXZkwrX_eXpNERNrMzAHaE7?rs=1&pid=ImgDetMain"
                 alt=""
               />
@@ -89,7 +91,7 @@ export default function HomePage() {
               </h2>
               <div className="flex justify-between">
                 <div>
-                  <div className="flex justify-center items-center bg-secondry p-4 rounded-4xl h-[40px]">
+                  <div className="flex justify-center items-center bg-secondry p-4 rounded-4xl h-[40px] ml-4">
                     <Link>Explore more</Link>
                     <FaLongArrowAltRight />
                   </div>
@@ -104,6 +106,7 @@ export default function HomePage() {
             {/* Card 3 */}
             <div className=" bg-white relative z-50">
               <img
+                className="p-4"
                 src="https://th.bing.com/th/id/OIP.yybHXZkwrX_eXpNERNrMzAHaE7?rs=1&pid=ImgDetMain"
                 alt=""
               />
@@ -112,7 +115,7 @@ export default function HomePage() {
               </h2>
               <div className="flex justify-between">
                 <div>
-                  <div className="flex justify-center items-center bg-secondry p-4 rounded-4xl max-h-[40px]">
+                  <div className="flex justify-center items-center bg-secondry p-4 rounded-4xl max-h-[40px] ml-4">
                     <Link>Explore more</Link>
                     <FaLongArrowAltRight />
                   </div>

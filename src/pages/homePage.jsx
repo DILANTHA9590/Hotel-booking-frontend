@@ -6,7 +6,7 @@ import Header from "../component/header";
 
 import Categories from "../component/categories";
 import Services from "../component/services";
-i;
+
 export default function HomePage() {
   const images = [
     "https://images.pexels.com/photos/2403209/pexels-photo-2403209.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",

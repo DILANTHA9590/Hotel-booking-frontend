@@ -1,4 +1,4 @@
-import { Link, Routes } from "react-router";
+import { Link, Route, Routes } from "react-router";
 
 import { useState, useEffect } from "react";
 import Navigationbar from "../component/navigationbar";
@@ -6,6 +6,7 @@ import Header from "../component/header";
 
 import Categories from "../component/categories";
 import Services from "../component/services";
+import StandardRoom from "../component/standardRoom";
 
 export default function HomePage() {
   const images = [
@@ -39,18 +40,13 @@ export default function HomePage() {
           <Navigationbar />
         </section>
 
-        <div className="w-full h-[calc(100vh-20vh)]">
-          <Header />
+        <div className="w-full h-[calc(100vh-15vh)]">
+          <Routes>
+            <Route path="/" element={<Header />} />
+            <Route path="standard" element={<StandardRoom />} />
+          </Routes>
         </div>
       </div>
-
-      <section>
-        <Categories />
-      </section>
-
-      <section>
-        <Services />
-      </section>
     </>
   );
 }

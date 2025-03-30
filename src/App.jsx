@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Toaster />
         <Routes path="/*">
-          <Route path="/" element={<HomePage />} />
+          <Route path="/*" element={<HomePage />} />
           <Route path="/login/" element={<AdminLoginPage />} />
           <Route path="/admin/*" element={<AdminHomePage />} />
           <Route path="/test" element={<UploadFile />} />

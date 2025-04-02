@@ -65,7 +65,8 @@ export default function AdminGalleryItem() {
   }
   return (
     <>
-      <div className="container mx-auto bg-white p-4 h-screen  overflow-hidden overflow-y-scroll ">
+      <div className="container mx-auto bg-white p-4 h-screen  overflow-hidden overflow-y-scroll relative ">
+        {/* <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-50 flex justify-center items-center"> </div> */}
         <div className="overflow-x-auto">
           <table className="min-w-full bg-gray-200s shadow-md rounded-lg">
             <thead>

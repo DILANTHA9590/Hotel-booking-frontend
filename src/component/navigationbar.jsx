@@ -55,7 +55,7 @@ export default function Navigationbar() {
         <ul className="flex items-center justify-center">
           <li className="sm:flex gap-x-6 hidden">
             <button>SignUp</button>
-            <button>Login</button>
+            <Link to="/login">Login</Link>
           </li>
           <li
             className="sm:hidden flex flex-col gap-y-1.5 transform rotate-180"

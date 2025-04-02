@@ -13,6 +13,7 @@ import AdminAddGallery from "../component/admin/admin-panel-components/addGaller
 import AdminEditGallery from "../component/admin/admin-panel-components/adminEditGallery";
 import AdminGalleryItem from "../component/admin/adminGalleryItem";
 import AdminUsers from "../component/admin/adminUsers";
+import AdminCreateRoom from "../component/admin/admin-panel-components/adminCreateRoom";
 
 export default function AdminHomePage() {
   return (
@@ -29,6 +30,7 @@ export default function AdminHomePage() {
           <Link to="/admin/customerreview">Feedback</Link>
           <Link to="/admin/ticketing">Ticketing</Link>
           <Link to="/admin/editcategory"></Link>
+          <Link to="/admin/createroom"></Link>
         </div>
         <div className="h-screen flex  w-[80%] bg-blue-400">
           <Routes>
@@ -43,6 +45,7 @@ export default function AdminHomePage() {
             <Route path="/Gallery" element={<AdminGalleryItem />} />
             <Route path="/addgallery" element={<AdminAddGallery />} />
             <Route path="/editgallery" element={<AdminEditGallery />} />
+            <Route path="/createroom" element={<AdminCreateRoom />} />
           </Routes>
         </div>
       </div>

@@ -34,7 +34,7 @@ export default function Navigationbar() {
         </div>
       )}
 
-      <div className="flex justify-between p-6 backdrop-blur-sm  bg-white/20 text-2xl font-bold  text-primary items-center h-[15vh]">
+      <div className="flex justify-between p-6 backdrop-blur-sm   text-2xl font-bold items-center h-[15vh] text-primary">
         <div>
           <img
             src="logo.webp"
@@ -44,10 +44,10 @@ export default function Navigationbar() {
         </div>
 
         <ul className="sm:flex gap-x-6 hidden">
-          <Link>Home</Link>
+          <Link to="/">Home</Link>
 
           <Link to="/about">About</Link>
-          <Link>Gallery</Link>
+          <Link to="/stand">Click</Link>
           <Link>category</Link>
           <Link>Rooms</Link>
         </ul>

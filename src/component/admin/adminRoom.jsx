@@ -9,7 +9,6 @@ import { IoIosArrowForward } from "react-icons/io";
 import { IoIosAdd } from "react-icons/io";
 
 export default function AdminRooms() {
-  const [users, setUsers] = useState([]);
   const [rooms, setRooms] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);

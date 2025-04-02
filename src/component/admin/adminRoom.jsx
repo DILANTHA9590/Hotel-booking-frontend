@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { MdArrowBackIosNew } from "react-icons/md";
 import { IoIosArrowForward } from "react-icons/io";
+import { IoIosAdd } from "react-icons/io";
 
 export default function AdminRooms() {
   const [users, setUsers] = useState([]);
@@ -64,11 +65,24 @@ export default function AdminRooms() {
       })
       .then(() => {
         toast.success(`${roomid} S Deleted successfully `);
+        setloaded(false);
+      })
+      .catch((err) => {
+        toast.success("");
       });
   }
+
+  function createRoom() {}
   return (
     <>
-      <div className="container mx-auto bg-gray-500 p-4 h-screen  overflow-hidden overflow-y-scroll relative ">
+      <div className="container mx-auto bg-primary p-4 h-screen  overflow-hidden relative overflow-y-scroll">
+        <button
+          className="flex items-center justify-centr font-bold bg-green-600 p-3 mb-1"
+          onClick={() => navigate("/admin/createroom")}
+        >
+          Add Rooms
+          <IoIosAdd className="text-2xl ml-3 font-bold" />
+        </button>
         {loaded ? (
           <div className="overflow-x-auto">
             <table className="min-w-full bg-gray-200s shadow-md rounded-lg">

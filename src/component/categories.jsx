@@ -30,7 +30,7 @@ export default function Categories() {
               <div className="flex justify-between">
                 <div>
                   <div className="flex justify-center items-center bg-secondry p-4 rounded-4xl h-[40px] ml-4">
-                    <Link>Explore more</Link>
+                    <Link to="/standard"> Standard Rooms</Link>
                     <FaLongArrowAltRight />
                   </div>
                 </div>

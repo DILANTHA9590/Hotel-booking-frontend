@@ -10,6 +10,7 @@ import StandardRoom from "../component/standardRoom";
 import RoomOverView from "../component/roomOverview";
 import DuluxRoom from "../component/duluxRoom";
 import LuxuryRoom from "../component/luxuryRoom";
+import BookingForm from "../component/bookingForm";
 
 export default function HomePage() {
   const images = [
@@ -20,22 +21,22 @@ export default function HomePage() {
 
   const [currentImage, setCurrentImage] = useState(images[0]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prevImage) => {
-        const currentIndex = images.indexOf(prevImage);
-        return images[(currentIndex + 1) % images.length];
-      });
-    }, 90000); // Change image every 20 seconds
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentImage((prevImage) => {
+  //       const currentIndex = images.indexOf(prevImage);
+  //       return images[(currentIndex + 1) % images.length];
+  //     });
+  //   }, 90000); // Change image every 20 seconds
 
-    return () => clearInterval(interval); // Cleanup
-  }, [images]);
+  //   return () => clearInterval(interval); // Cleanup
+  // }, [images]);
 
   return (
     <>
       <div
         className="w-full h-screen bg-cover bg-center relative transition-all duration-1000 rounded-b-2xl"
-        style={{ backgroundImage: `url(${currentImage})` }}
+        // style={{ backgroundImage: `url(${currentImage})` }}
       >
         <div className="absolute inset-0 bg-black/15 pointer-events-none z-0"></div>
 
@@ -50,6 +51,7 @@ export default function HomePage() {
             <Route path="/dulux" element={<DuluxRoom />} />
             <Route path="/luxury" element={<LuxuryRoom />} />
             <Route path="/roominfo/:roomId" element={<RoomOverView />} />
+            <Route path="/booking" element={<BookingForm />} />
           </Routes>
         </div>
       </div>

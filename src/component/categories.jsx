@@ -54,7 +54,7 @@ export default function Categories() {
               <div className="flex justify-between">
                 <div>
                   <div className="flex justify-center items-center bg-secondry p-4 rounded-4xl h-[40px] ml-4">
-                    <Link>Explore more</Link>
+                    <Link to="/dulux">Explore more</Link>
                     <FaLongArrowAltRight />
                   </div>
                 </div>
@@ -78,7 +78,7 @@ export default function Categories() {
               <div className="flex justify-between">
                 <div>
                   <div className="flex justify-center items-center bg-secondry p-4 rounded-4xl max-h-[40px] ml-4">
-                    <Link>Explore more</Link>
+                    <Link to="/luxury">Explore more</Link>
                     <FaLongArrowAltRight />
                   </div>
                 </div>

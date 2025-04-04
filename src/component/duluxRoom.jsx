@@ -8,7 +8,7 @@ export default function DuluxRoom() {
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/rooms/category`, {
         params: {
-          category: "dulux",
+          category: "Deluxe",
         },
       })
       .then((res) => {

@@ -37,7 +37,7 @@ export default function AdminCreateRoom() {
         category: category,
         maxGuests: maxGuests,
         available: available,
-        image: imgUrl,
+        photos: imgUrl,
       };
       if (specialsDescriptions) {
         roomData.specialsDescriptions = specialsDescriptions;
@@ -56,6 +56,7 @@ export default function AdminCreateRoom() {
           },
         }
       );
+
       toast.success(result.data.message);
       navigate("/admin/rooms");
     } catch (error) {

@@ -7,6 +7,9 @@ import Header from "../component/header";
 import Categories from "../component/categories";
 import Services from "../component/services";
 import StandardRoom from "../component/standardRoom";
+import RoomOverView from "../component/roomOverview";
+import DuluxRoom from "../component/duluxRoom";
+import LuxuryRoom from "../component/luxuryRoom";
 
 export default function HomePage() {
   const images = [
@@ -23,7 +26,7 @@ export default function HomePage() {
         const currentIndex = images.indexOf(prevImage);
         return images[(currentIndex + 1) % images.length];
       });
-    }, 10000); // Change image every 20 seconds
+    }, 90000); // Change image every 20 seconds
 
     return () => clearInterval(interval); // Cleanup
   }, [images]);
@@ -43,7 +46,10 @@ export default function HomePage() {
         <div className="w-full h-[calc(100vh-15vh)]">
           <Routes>
             <Route path="/" element={<Header />} />
-            <Route path="standard" element={<StandardRoom />} />
+            <Route path="/standard" element={<StandardRoom />} />
+            <Route path="/dulux" element={<DuluxRoom />} />
+            <Route path="/luxury" element={<LuxuryRoom />} />
+            <Route path="/roominfo/:roomId" element={<RoomOverView />} />
           </Routes>
         </div>
       </div>

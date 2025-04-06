@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import toast from "react-hot-toast";
+import { useNavigate, useParams } from "react-router";
 
 export default function RoomOverView() {
   const { roomId } = useParams(); // Get roomId from URL
   const [room, setRoom] = useState(null); // Store room data
   const [loaded, setLoaded] = useState(false); // Loading state
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoaded(false); // Reset loading state before fetching data
@@ -21,6 +23,20 @@ export default function RoomOverView() {
         setLoaded(true); // Even if error, stop loading animation
       });
   }, [roomId]); // Re-fetch if roomId changes
+
+  function onClickBookNow() {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      return toast.error("Oops! You need to sign in to make a reservation.");
+    }
+
+    navigate("/booking", {
+      state: {
+        roomId: room.roomId,
+      },
+    });
+  }
 
   return (
     <>
@@ -51,7 +67,10 @@ export default function RoomOverView() {
                     {room.specialsDescriptions}
                   </p>
                 )}
-                <button className="mt-4 w-fit bg-white text-blue-700 font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-blue-100 transition-all duration-300">
+                <button
+                  className="mt-4 w-fit bg-white text-blue-700 font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-blue-100 transition-all duration-300"
+                  onClick={onClickBookNow}
+                >
                   Book Now
                 </button>
               </div>

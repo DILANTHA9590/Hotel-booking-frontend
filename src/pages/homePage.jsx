@@ -11,6 +11,9 @@ import RoomOverView from "../component/roomOverview";
 import DuluxRoom from "../component/duluxRoom";
 import LuxuryRoom from "../component/luxuryRoom";
 import BookingForm from "../component/bookingForm";
+import About from "../component/about";
+import Rooms from "../component/admin/admin-panel-components/rooms";
+import AllRooms from "../component/admin/admin-panel-components/rooms";
 
 export default function HomePage() {
   const images = [
@@ -52,6 +55,8 @@ export default function HomePage() {
             <Route path="/luxury" element={<LuxuryRoom />} />
             <Route path="/roominfo/:roomId" element={<RoomOverView />} />
             <Route path="/booking" element={<BookingForm />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/rooms" element={<AllRooms />} />
           </Routes>
         </div>
       </div>

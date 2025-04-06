@@ -47,9 +47,9 @@ export default function Navigationbar() {
           <Link to="/">Home</Link>
 
           <Link to="/about">About</Link>
-          <Link to="/stand">Click</Link>
+
           <Link>category</Link>
-          <Link>Rooms</Link>
+          <Link to="/rooms">Rooms</Link>
         </ul>
 
         <ul className="flex items-center justify-center">

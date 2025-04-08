@@ -48,13 +48,13 @@ export default function Navigationbar() {
 
           <Link to="/about">About</Link>
 
-          <Link>category</Link>
+          <Link to="/contact">Contact us</Link>
           <Link to="/rooms">Rooms</Link>
         </ul>
 
         <ul className="flex items-center justify-center">
           <li className="sm:flex gap-x-6 hidden">
-            <button>SignUp</button>
+            <Link to="/signup">Signup</Link>
             <Link to="/login">Login</Link>
           </li>
           <li

@@ -14,6 +14,7 @@ import BookingForm from "../component/bookingForm";
 import About from "../component/about";
 import Rooms from "../component/admin/admin-panel-components/rooms";
 import AllRooms from "../component/admin/admin-panel-components/rooms";
+import ContactUs from "../component/contact";
 
 export default function HomePage() {
   const images = [
@@ -57,6 +58,7 @@ export default function HomePage() {
             <Route path="/booking" element={<BookingForm />} />
             <Route path="/about" element={<About />} />
             <Route path="/rooms" element={<AllRooms />} />
+            <Route path="/contact" element={<ContactUs />} />
           </Routes>
         </div>
       </div>

@@ -5,6 +5,7 @@ import AdminHomePage from "./pages/adminHomePage";
 import AdminLoginPage from "./pages/loginpage";
 import { Toaster } from "react-hot-toast"; // Import Toaster
 import UploadFile from "./pages/test ";
+import Signupform from "./pages/singnup";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/login/" element={<AdminLoginPage />} />
           <Route path="/admin/*" element={<AdminHomePage />} />
           <Route path="/test" element={<UploadFile />} />
+          <Route path="/signup" element={<Signupform />} />
         </Routes>
       </BrowserRouter>
     </>

@@ -24,20 +24,26 @@ export default function Signupform() {
   const navigate = useNavigate();
 
   function onLoginClick() {
+    // Check if all required fields are filled (basic client-side validation)
+    if (
+      !formData.email ||
+      !formData.password ||
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.whatsApp ||
+      !formData.phone
+    ) {
+      toast.error("Please fill all the required fields.");
+      return;
+    }
     axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/api/users`, formData)
-      .then((res) => {
+      .then(() => {
         toast.success(res.data.message);
-        localStorage.setItem("token", res.data.token);
-
-        if (res.data.user.type == "admin") {
-          console.log("admin");
-          navigate("/admin/booking");
-        } else {
-          navigate("/");
-        }
+        navigate("/verifyemail");
       })
       .catch((error) => {
+        navigate("/verifyemail");
         toast.error("error", error.response.data);
       });
   }
@@ -66,6 +72,7 @@ export default function Signupform() {
                 placeholder="Enter your Email address"
                 value={formData.email}
                 onChange={handlechange}
+                required
               />
               <input
                 type="text"
@@ -74,40 +81,45 @@ export default function Signupform() {
                 value={formData.password}
                 name="password"
                 onChange={handlechange}
+                required
               />
               <input
                 type="text"
                 className="  px-4 border  border-amber-50 bg-[#00000000] w-[80%]  placeholder:text-white rounded-sm py-3 mb-5"
-                placeholder="Enter Password"
+                placeholder="Enter first name"
                 value={formData.firstName}
                 name="firstName"
                 onChange={handlechange}
+                required
               />
               <input
                 type="text"
                 className="  px-4 border  border-amber-50 bg-[#00000000] w-[80%]  placeholder:text-white rounded-sm py-3 mb-5"
-                placeholder="Enter Password"
+                placeholder="Enter last name"
                 value={formData.lastName}
                 name="lastName"
                 onChange={handlechange}
+                required
               />
 
               <input
                 type="text"
                 className="  px-4 border  border-amber-50 bg-[#00000000] w-[80%]  placeholder:text-white rounded-sm py-3 mb-5"
-                placeholder="Enter Password"
+                placeholder="Enter whats app number"
                 value={formData.whatsApp}
                 name="whatsApp"
                 onChange={handlechange}
+                required
               />
 
               <input
                 type="text"
                 className="  px-4 border  border-amber-50 bg-[#00000000] w-[80%]  placeholder:text-white rounded-sm py-3 mb-5"
-                placeholder="Enter Password"
+                placeholder="Enter phone number"
                 value={formData.phone}
                 name="phone"
                 onChange={handlechange}
+                required
               />
 
               <button

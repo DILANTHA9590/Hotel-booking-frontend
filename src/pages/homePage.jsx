@@ -15,6 +15,7 @@ import About from "../component/about";
 import Rooms from "../component/admin/admin-panel-components/rooms";
 import AllRooms from "../component/admin/admin-panel-components/rooms";
 import ContactUs from "../component/contact";
+import Student from "../component/student";
 
 export default function HomePage() {
   const images = [
@@ -59,6 +60,7 @@ export default function HomePage() {
             <Route path="/about" element={<About />} />
             <Route path="/rooms" element={<AllRooms />} />
             <Route path="/contact" element={<ContactUs />} />
+            <Route path="/student" element={<Student />} />
           </Routes>
         </div>
       </div>

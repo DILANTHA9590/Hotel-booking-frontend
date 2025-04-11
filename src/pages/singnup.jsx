@@ -13,6 +13,8 @@ export default function Signupform() {
     phone: "",
   });
 
+  console.log(formData);
+
   const [value, setValue] = useState(false);
 
   const handlechange = (e) => {
@@ -23,10 +25,7 @@ export default function Signupform() {
 
   function onLoginClick() {
     axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/api/users/login`, {
-        email: email,
-        password: password,
-      })
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/users`, formData)
       .then((res) => {
         toast.success(res.data.message);
         localStorage.setItem("token", res.data.token);

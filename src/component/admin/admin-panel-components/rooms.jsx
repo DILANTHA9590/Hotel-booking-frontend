@@ -1,4 +1,5 @@
 import DuluxRoom from "../../duluxRoom";
+import Footer from "../../footer";
 import LuxuryRoom from "../../luxuryRoom";
 import StandardRoom from "../../standardRoom";
 
@@ -25,6 +26,7 @@ export default function AllRooms() {
           <LuxuryRoom />
         </section>
       </div>
+      <Footer />
     </>
   );
 }

@@ -31,7 +31,7 @@ export default function AdminBookingPanel(props) {
       <td className="py-3 px-6 text-left border">
         <button className="py-3 px-6 ">
           <MdDelete
-            className=" text-center"
+            className=" text-center text-red-500 text-2xl"
             onClick={() => booking.deleteBooking(booking.bookingId)}
           />
         </button>

@@ -14,23 +14,59 @@ import AdminEditGallery from "../component/admin/admin-panel-components/adminEdi
 import AdminGalleryItem from "../component/admin/adminGalleryItem";
 import AdminUsers from "../component/admin/adminUsers";
 import AdminCreateRoom from "../component/admin/admin-panel-components/adminCreateRoom";
-
+import { TbBrandBooking } from "react-icons/tb";
+import { GrGallery } from "react-icons/gr";
+import { BsHouse } from "react-icons/bs";
+import { BiCategoryAlt } from "react-icons/bi";
+import { FaRegUserCircle } from "react-icons/fa";
+import { VscFeedback } from "react-icons/vsc";
+import { BsTicketPerforated } from "react-icons/bs";
+import { IoMdLogOut } from "react-icons/io";
 export default function AdminHomePage() {
   return (
     <>
       <div className="bg-gray-500 w-screen h-screen flex p-l">
-        <div className=" h-screen flex flex-col w-[20%] bg-blue-500 pl-4 gap-y-4 font-bold color-g text-white text-2xl">
-          <div>
+        <div className=" h-screen flex flex-col w-[20%] bg-blue-500 pl-4 gap-y-4 font-bold color-g text-white text-2xl relative  ">
+          <div className=" border hover:bg-dashboardlinks hover:text-black transition-all duration-1000">
+            <TbBrandBooking />
             <Link to="/admin/booking">Booking</Link>
           </div>
-          <Link to="/admin/gallery">Gallery</Link>
-          <Link to="/admin/rooms">Rooms</Link>
-          <Link to="/admin/category">Categories</Link>
-          <Link to="/admin/customer">Customers</Link>
-          <Link to="/admin/customerreview">Feedback</Link>
-          <Link to="/admin/ticketing">Ticketing</Link>
-          <Link to="/admin/editcategory"></Link>
-          <Link to="/admin/createroom"></Link>
+
+          <div className="border-t-white border hover:bg-dashboardlinks hover:text-black transition-all duration-1000">
+            <GrGallery />
+            <Link to="/admin/gallery">Gallery</Link>
+          </div>
+          <div className="border-t-white border hover:bg-dashboardlinks hover:text-black transition-all duration-1000">
+            <BsHouse />
+            <Link to="/admin/rooms">Rooms</Link>
+          </div>
+          <div className="border-t-white border hover:bg-dashboardlinks hover:text-black transition-all duration-1000">
+            <BiCategoryAlt />
+            <Link to="/admin/category">Categories</Link>
+          </div>
+          <div className="border-t-white border hover:bg-dashboardlinks hover:text-black transition-all duration-1000">
+            <FaRegUserCircle />
+            <Link to="/admin/customer">Customers</Link>
+          </div>
+          <div className="border-t-white border hover:bg-dashboardlinks hover:text-black transition-all duration-1000">
+            <VscFeedback />
+            <Link to="/admin/customerreview">Feedback</Link>
+          </div>
+          <div className="border-t-white border hover:bg-dashboardlinks hover:text-black transition-all duration-1000">
+            <BsTicketPerforated />
+            <Link to="/admin/ticketing">Ticketing</Link>
+          </div>
+          <div>
+            <Link to="/admin/editcategory"></Link>
+          </div>
+          <div>
+            <Link to="/admin/createroom"></Link>
+          </div>
+
+          <div className="border-t-white border hover:bg-dashboardlinks hover:text-black transition-all duration-1000">
+            <IoMdLogOut />
+            <button>Log out</button>
+          </div>
         </div>
         <div className="h-screen flex  w-[80%] bg-blue-400">
           <Routes>

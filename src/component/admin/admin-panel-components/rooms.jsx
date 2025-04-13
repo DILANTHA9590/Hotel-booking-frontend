@@ -1,3 +1,4 @@
+import Categories from "../../categories";
 import DuluxRoom from "../../duluxRoom";
 import Footer from "../../footer";
 import LuxuryRoom from "../../luxuryRoom";
@@ -6,7 +7,7 @@ import StandardRoom from "../../standardRoom";
 export default function AllRooms() {
   return (
     <>
-      <div>
+      {/* <div>
         <section className="">
           <h1 className="text-7xl bg-secondry text-center font-bold">
             Standard Rooms
@@ -25,7 +26,8 @@ export default function AllRooms() {
           </h1>
           <LuxuryRoom />
         </section>
-      </div>
+      </div> */}
+      <Categories />
       <Footer />
     </>
   );

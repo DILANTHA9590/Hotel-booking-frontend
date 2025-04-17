@@ -1,8 +1,10 @@
 import axios from "axios";
 import { useState } from "react";
-import { useLocation } from "react-router";
+import toast from "react-hot-toast";
+import { useLocation, useNavigate } from "react-router";
 
 export default function BookingForm() {
+  const navigate = useNavigate();
   const location = useLocation();
   const roomId = location?.state?.roomId; // Getting the roomId from the location
 
@@ -22,22 +24,24 @@ export default function BookingForm() {
 
   const onClickHandleSubmit = () => {
     const token = localStorage.getItem("token");
-    if (token) {
-      axios
-        .post(`${import.meta.env.VITE_BACKEND_URL}/api/booking`, formData, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        })
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } else {
-      console.log("No token found");
+    if (!token) {
+      navigate("/login");
     }
+    axios
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/booking`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        // navigate("/mybooking");
+        console.log(res);
+        toast.success(res.data.message);
+        navigate("/mybooking");
+      })
+      .catch((err) => {
+        navigate("/mybooking");
+      });
   };
 
   return (

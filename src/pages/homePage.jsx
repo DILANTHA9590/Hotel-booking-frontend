@@ -16,6 +16,8 @@ import Rooms from "../component/admin/admin-panel-components/rooms";
 import AllRooms from "../component/admin/admin-panel-components/rooms";
 import ContactUs from "../component/contact";
 import Student from "../component/student";
+import Myaccount from "../component/myaccount";
+import ViewMyBooking from "../component/viewUserBooking";
 
 export default function HomePage() {
   const images = [
@@ -61,6 +63,8 @@ export default function HomePage() {
             <Route path="/rooms" element={<AllRooms />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/student" element={<Student />} />
+            <Route path="/myaccount" element={<Myaccount />} />
+            <Route path="/mybooking" element={<ViewMyBooking />} />
           </Routes>
         </div>
       </div>

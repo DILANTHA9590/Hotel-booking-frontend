@@ -49,8 +49,10 @@ export default function AdminBooking() {
   }
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    if (!loaded) {
+      fetchData();
+    }
+  }, [loaded]);
 
   useEffect(() => {
     if (search === "") {
@@ -70,6 +72,7 @@ export default function AdminBooking() {
       })
       .then((res) => {
         toast.success("Deleted Successfully");
+        setloaded(false);
       })
       .catch((erorr) => {
         toast.error("Error occurd");
@@ -156,7 +159,7 @@ export default function AdminBooking() {
                   <div class="text-[80px]">😔</div>
                   <h1 class="text-5xl font-bold text-gray-800">404</h1>
                   <h2 class="text-2xl font-semibold text-gray-700">
-                    Oops! User Not Found
+                    Oops! Booking' Not Found
                   </h2>
                   <p class="text-gray-500 max-w-md mx-auto">
                     We couldn't find any Booking ID matching your search. Please

@@ -22,6 +22,10 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { VscFeedback } from "react-icons/vsc";
 import { BsTicketPerforated } from "react-icons/bs";
 import { IoMdLogOut } from "react-icons/io";
+import BookedRooms from "../component/admin/allBookedRoom";
+import { FaCalendarCheck } from "react-icons/fa";
+import NotFoundPage from "../component/admin/notFound";
+import ExpireBookings from "../component/admin/allBookedRoom";
 export default function AdminHomePage() {
   return (
     <>
@@ -64,6 +68,11 @@ export default function AdminHomePage() {
           </div>
 
           <div className="border-t-white border hover:bg-dashboardlinks hover:text-black transition-all duration-1000">
+            <FaCalendarCheck />
+            <Link to="/admin/checkexpirebookings">Check expire bookings</Link>
+          </div>
+
+          <div className="border-t-white border hover:bg-dashboardlinks hover:text-black transition-all duration-1000">
             <IoMdLogOut />
             <button>Log out</button>
           </div>
@@ -82,6 +91,10 @@ export default function AdminHomePage() {
             <Route path="/addgallery" element={<AdminAddGallery />} />
             <Route path="/editgallery" element={<AdminEditGallery />} />
             <Route path="/createroom" element={<AdminCreateRoom />} />
+
+            <Route path="/checkexpirebookings" element={<ExpireBookings />} />
+
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </div>
       </div>

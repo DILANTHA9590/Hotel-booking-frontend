@@ -15,8 +15,6 @@ export default function AdminBooking() {
   const navigate = useNavigate();
 
   function fetchData(id = "") {
-    console.log("ssssssssssssssssssss", id);
-
     const token = localStorage.getItem("token");
 
     if (!token) {

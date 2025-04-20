@@ -1,12 +1,12 @@
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
 export default function Categories() {
   return (
     <>
-      <section className="relative bg-primary">
+      <section className="relative bg-primary -z-40">
         {/* Background div with lower z-index */}
-        <div className="bg-gray-800 h-[30vh] absolute w-full bottom-0 z-10">
+        <div className="bg-gray-800 h-[30vh] absolute w-full bottom-0 ">
           oooss
         </div>
 
@@ -22,15 +22,16 @@ export default function Categories() {
               <img
                 className="p-4 sm:p-0"
                 src="https://th.bing.com/th/id/OIP.yybHXZkwrX_eXpNERNrMzAHaE7?rs=1&pid=ImgDetMain"
-                alt=""
+                alt="Standard Room"
               />
               <h2 className="text-secondry text-2xl text-center">
                 Standard Room
               </h2>
+              <p className="text-center text-gray-500">Accommodates 2 people</p>
               <div className="flex justify-between">
                 <div>
                   <div className="flex justify-center items-center bg-secondry p-4 rounded-4xl h-[40px] ml-4">
-                    <Link to="/standard"> Standard Rooms</Link>
+                    <Link to="/standard">Explore More</Link>
                     <FaLongArrowAltRight />
                   </div>
                 </div>
@@ -46,20 +47,21 @@ export default function Categories() {
               <img
                 className="p-4 sm:p-0"
                 src="https://th.bing.com/th/id/OIP.yybHXZkwrX_eXpNERNrMzAHaE7?rs=1&pid=ImgDetMain"
-                alt=""
+                alt="Deluxe Room"
               />
               <h2 className="text-secondry text-2xl text-center">
                 Deluxe Room
               </h2>
+              <p className="text-center text-gray-500">Accommodates 3 people</p>
               <div className="flex justify-between">
                 <div>
                   <div className="flex justify-center items-center bg-secondry p-4 rounded-4xl h-[40px] ml-4">
-                    <Link to="/dulux">Explore more</Link>
+                    <Link to="/dulux">Explore More</Link>
                     <FaLongArrowAltRight />
                   </div>
                 </div>
                 <div className="pr-4">
-                  <h2>$60.00</h2>
+                  <h2>$100.00</h2>
                   <h2>per night</h2>
                 </div>
               </div>
@@ -70,20 +72,21 @@ export default function Categories() {
               <img
                 className="p-4 sm:p-0"
                 src="https://th.bing.com/th/id/OIP.yybHXZkwrX_eXpNERNrMzAHaE7?rs=1&pid=ImgDetMain"
-                alt=""
+                alt="Luxury Room"
               />
               <h2 className="text-secondry text-2xl text-center">
                 Luxury Room
               </h2>
+              <p className="text-center text-gray-500">Accommodates 4 people</p>
               <div className="flex justify-between">
                 <div>
                   <div className="flex justify-center items-center bg-secondry p-4 rounded-4xl max-h-[40px] ml-4">
-                    <Link to="/luxury">Explore more</Link>
+                    <Link to="/luxury">Explore More</Link>
                     <FaLongArrowAltRight />
                   </div>
                 </div>
                 <div className="pr-4">
-                  <h2>$60.00</h2>
+                  <h2>$150.00</h2>
                   <h2>per night</h2>
                 </div>
               </div>

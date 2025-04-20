@@ -49,7 +49,7 @@ export default function AdminGalleryItem() {
     }
 
     axios
-      .delete(`http://localhost:5000/api/gallery/${_id}`, {
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/api/gallery/${_id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

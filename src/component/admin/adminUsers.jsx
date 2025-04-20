@@ -36,7 +36,7 @@ export default function AdminUsers() {
       })
 
       .then((res) => {
-        setUsers(res.data.users);
+        setUsers(res.data.users || []);
         console.log(res);
         setTotalPages(res.data.pagination.totalPages);
       });

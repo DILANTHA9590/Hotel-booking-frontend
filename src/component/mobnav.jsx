@@ -56,7 +56,7 @@ export default function MobileNavigationBar(props) {
 
             <div className="flex flex-col items-center">
               <BiCategory size={24} />
-              <Link to="/categories">Category</Link>
+              <Link to="/category">Categories</Link>
             </div>
           </div>
         </div>

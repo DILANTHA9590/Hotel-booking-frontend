@@ -22,6 +22,7 @@ export default function ViewMyBooking() {
       .then((res) => {
         toast.success(res.data.message);
         setBookings(res.data.bookings);
+        console.log(res.data.bookings);
       })
       .catch((error) => {
         toast.error(
@@ -44,10 +45,23 @@ export default function ViewMyBooking() {
               key={booking._id}
               className="bg-white shadow-md rounded-lg p-6 border border-gray-200"
             >
-              <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                Booking ID:{" "}
-                <span className="text-indigo-600">{booking.bookingId}</span>
-              </h2>
+              <div className=" ">
+                <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                  Booking ID:{" "}
+                  <span className="text-indigo-600">{booking.bookingId}</span>
+                </h2>
+                <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                  <span
+                    className={
+                      booking.expired
+                        ? "text-red-600  p-1 border-2"
+                        : "text-green-600 border p-1 border-2"
+                    }
+                  >
+                    {booking.expired ? " 🛑 Expired" : "🚀 In Progress"}
+                  </span>
+                </h2>
+              </div>
               <p className="text-sm text-gray-600 mb-1">
                 <span className="font-medium">Room ID:</span> {booking.roomId}
               </p>

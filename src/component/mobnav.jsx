@@ -41,22 +41,30 @@ export default function MobileNavigationBar(props) {
 
             <div className="flex flex-col items-center">
               <FaHome size={24} />
-              <Link to="/">Home</Link>
+              <Link to="/" onClick={props.navbarclose}>
+                Home
+              </Link>
             </div>
 
             <div className="flex flex-col items-center">
               <FcAbout size={24} />
-              <Link to="/about">About</Link>
+              <Link to="/about" onClick={props.navbarclose}>
+                About
+              </Link>
             </div>
 
             <div className="flex flex-col items-center">
               <BiSolidContact size={24} />
-              <Link to="/contact">Contact</Link>
+              <Link to="/contact" onClick={props.navbarclose}>
+                Contact
+              </Link>
             </div>
 
             <div className="flex flex-col items-center">
               <BiCategory size={24} />
-              <Link to="/category">Categories</Link>
+              <Link to="/category" onClick={props.navbarclose}>
+                Categories
+              </Link>
             </div>
           </div>
         </div>

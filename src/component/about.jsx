@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import Footer from "./footer";
 
 export default function About() {
@@ -97,12 +98,12 @@ export default function About() {
           <p className="text-lg mb-6">
             Book your stay today and make unforgettable memories at Hotelo.
           </p>
-          <a
-            href="/book"
+          <Link
+            to="/"
             className="inline-block bg-yellow-500 hover:bg-yellow-600 text-white py-3 px-8 rounded-full text-lg font-semibold transition duration-300"
           >
-            Book Now
-          </a>
+            Book
+          </Link>
         </section>
 
         <section>

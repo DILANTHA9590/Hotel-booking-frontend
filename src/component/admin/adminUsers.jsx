@@ -13,6 +13,7 @@ export default function AdminUsers() {
   const [totalPages, setTotalPages] = useState();
   const [users, setUsers] = useState([]);
   const [search, setSearch] = useState("");
+  const [loaded, setLoaded] = useState(true);
   const navigate = useNavigate();
   let number = 1;
 
@@ -44,14 +45,14 @@ export default function AdminUsers() {
 
   useEffect(() => {
     fetchData(search, page);
-  }, [page]);
+  }, [page, loaded]);
 
   useEffect(() => {
-    if (search === "") {
+    if (search === "" || !loaded) {
       setPage(1);
       fetchData(search, 1);
     }
-  }, [search]);
+  }, [search, loaded]);
 
   function handleSearch() {
     setPage(1);
@@ -78,7 +79,7 @@ export default function AdminUsers() {
       };
 
       const result = await axios.put(
-        `http://localhost:5000/api/users/${email}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/users/${email}`,
         updateUser,
         {
           headers: {
@@ -101,6 +102,25 @@ export default function AdminUsers() {
       console.log(error);
       toast.error("Something went a wrong please try again");
     }
+  }
+
+  function handleOnDelete(email) {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      return navigate("/login");
+    }
+    setLoaded(false);
+    axios
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/api/users/${email}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        setLoaded(true);
+      });
   }
 
   return (
@@ -210,7 +230,7 @@ export default function AdminUsers() {
                     <td className="py-3 px-6 text-left border">
                       <button
                         className="py-3 px-6"
-                        onClick={() => handleOnDelete(galleryItem._id)}
+                        onClick={() => handleOnDelete(user.email)}
                       >
                         <MdDelete className="w-[25px] h-[25px] text-red-400 cursor-pointer" />
                       </button>

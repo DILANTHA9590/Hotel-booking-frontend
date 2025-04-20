@@ -21,9 +21,9 @@ export default function About() {
         <section className="py-20 px-6 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <div>
             <img
-              src="/restaurant.png"
+              src="https://images.pexels.com/photos/7532113/pexels-photo-7532113.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
               alt="Hotelo interior"
-              className="rounded-2xl shadow-lg"
+              className="rounded-2xl shadow-lg relative z-50"
             />
           </div>
           <div>

@@ -41,7 +41,7 @@ export default function Navigationbar() {
           <Link to="/">Home</Link>
           <Link to="/about">About</Link>
           <Link to="/contact">Contact us</Link>
-          <Link to="/rooms">Rooms</Link>
+          <Link to="/category">category</Link>
           {token && <Link to="/myaccount">My account</Link>}
 
           <button onClick={onclick}>Click me</button>

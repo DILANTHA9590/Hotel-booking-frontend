@@ -65,6 +65,7 @@ export default function HomePage() {
             <Route path="/student" element={<Student />} />
             <Route path="/myaccount" element={<Myaccount />} />
             <Route path="/mybooking" element={<ViewMyBooking />} />
+            <Route path="/category" element={<Categories />} />
           </Routes>
         </div>
       </div>

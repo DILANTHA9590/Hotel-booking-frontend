@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import Footer from "./footer";
 
 export default function Categories() {
   return (
@@ -93,6 +94,9 @@ export default function Categories() {
             </div>
           </div>
         </div>
+      </section>
+      <section>
+        <Footer />
       </section>
     </>
   );

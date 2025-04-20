@@ -4,7 +4,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 export default function Categories() {
   return (
     <>
-      <section className="relative bg-primary -z-40">
+      <section className="relative bg-primary z-40">
         {/* Background div with lower z-index */}
         <div className="bg-gray-800 h-[30vh] absolute w-full bottom-0 ">
           oooss

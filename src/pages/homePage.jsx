@@ -18,6 +18,8 @@ import ContactUs from "../component/contact";
 import Student from "../component/student";
 import Myaccount from "../component/myaccount";
 import ViewMyBooking from "../component/viewUserBooking";
+import NotFoundPage from "../component/admin/notFound";
+import PageNotFound from "../component/404customers";
 
 export default function HomePage() {
   const images = [
@@ -66,6 +68,7 @@ export default function HomePage() {
             <Route path="/myaccount" element={<Myaccount />} />
             <Route path="/mybooking" element={<ViewMyBooking />} />
             <Route path="/category" element={<Categories />} />
+            <Route path="*" element={<PageNotFound />} />
           </Routes>
         </div>
       </div>

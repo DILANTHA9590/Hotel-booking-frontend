@@ -23,6 +23,10 @@ export default function BookingForm() {
   };
 
   const onClickHandleSubmit = () => {
+    if (!formData.email || !formData.start || !formData.end) {
+      toast.error("Please fill all required fields!");
+      return;
+    }
     const token = localStorage.getItem("token");
     if (!token) {
       navigate("/login");
@@ -59,7 +63,7 @@ export default function BookingForm() {
           <input
             type="text"
             name="roomId"
-            required
+            disabled
             value={formData.roomId}
             onChange={handleChange}
             className="w-full mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"

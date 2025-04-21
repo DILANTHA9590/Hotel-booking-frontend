@@ -62,7 +62,7 @@ export default function AdminLoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
               />
               <input
-                type="text"
+                type="password"
                 className="  px-4 border  border-amber-50 bg-[#00000000] w-[80%]  placeholder:text-white rounded-sm py-3"
                 placeholder="Enter Password"
                 value={password}

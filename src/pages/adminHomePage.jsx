@@ -1,4 +1,4 @@
-import { Link, Route, Routes } from "react-router";
+import { Link, Route, Routes, useNavigate } from "react-router";
 import AdminBooking from "../component/admin/adminBooking";
 
 import AdminRooms from "../component/admin/adminRoom";
@@ -27,6 +27,12 @@ import { FaCalendarCheck } from "react-icons/fa";
 import NotFoundPage from "../component/admin/notFound";
 import ExpireBookings from "../component/admin/allBookedRoom";
 export default function AdminHomePage() {
+  const navigate = useNavigate();
+  function handleLogout() {
+    localStorage.removeItem("token");
+    navigate("/");
+  }
+
   return (
     <>
       <div className="bg-gray-500 w-screen h-screen flex p-l">
@@ -74,7 +80,7 @@ export default function AdminHomePage() {
 
           <div className="border-t-white border hover:bg-dashboardlinks hover:text-black transition-all duration-1000">
             <IoMdLogOut />
-            <button>Log out</button>
+            <button onClick={handleLogout}>Log out</button>
           </div>
         </div>
         <div className="h-screen flex  w-[80%] bg-blue-400">

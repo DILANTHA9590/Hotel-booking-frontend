@@ -30,11 +30,14 @@ export default function Navigationbar() {
 
       <div className="flex justify-between p-6 backdrop-blur-sm   text-2xl font-bold items-center h-[15vh] text-primary relative">
         <div>
-          <img
-            src="logo.webp"
-            alt=""
-            className="sm:w-40 sm:h-20 w-25 h-13 bg-blue-500 transform skew-x-12 rounded-bl-2xl rounded-tr-2xl "
-          />
+          <Link to="/">
+            <img
+              src="logo.webp"
+              alt=""
+              className="sm:w-40 sm:h-20 w-25 h-13 bg-blue-500 transform skew-x-12 rounded-bl-2xl rounded-tr-2xl "
+              title="Go To Home"
+            />
+          </Link>
         </div>
 
         <ul className="sm:flex gap-x-6 hidden">
@@ -43,8 +46,6 @@ export default function Navigationbar() {
           <Link to="/contact">Contact us</Link>
           <Link to="/category">category</Link>
           {token && <Link to="/myaccount">My account</Link>}
-
-          <button onClick={onclick}>Click me</button>
         </ul>
 
         <ul className="flex items-center justify-center">

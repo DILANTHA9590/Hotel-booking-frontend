@@ -113,7 +113,7 @@ export default function Header() {
 
           <div>
             <button
-              className="bg-secondry p-4 rounded-[130px] "
+              className="bg-secondry p-4 rounded-[130px] cursor-pointer"
               onClick={onClickBooking}
             >
               Book Now

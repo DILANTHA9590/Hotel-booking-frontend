@@ -28,7 +28,7 @@ export default function Navigationbar() {
     <>
       {mobNavbarOpen && <MobileNavigationBar navbarclose={navBarClose} />}
 
-      <div className="flex justify-between p-6 backdrop-blur-sm   text-2xl font-bold items-center h-[15vh] text-primary relative">
+      <div className="flex text justify-between p-6 backdrop-blur-sm  bg-black/10 text-2xl font-bold items-center h-[15vh] text-primary relative">
         <div>
           <Link to="/">
             <img

@@ -43,7 +43,8 @@ export default function LuxuryRoom() {
                     <div className="p-4 flex flex-col justify-between flex-grow">
                       <div className="flex flex-col gap-y-3">
                         <p className="text-xl font-semibold text-gray-700">
-                          {room.category}
+                          {room.category.charAt(0).toUpperCase() +
+                            room.category.slice(1)}
                         </p>
                         <p className="text-sm text-gray-500 mt-2">
                           Room ID: {room.roomId}

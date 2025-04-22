@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useNavigate, useParams } from "react-router";
+import ImageSlider from "./imageSlider";
 
 export default function RoomOverView() {
   const { roomId } = useParams(); // Get roomId from URL
@@ -16,6 +17,7 @@ export default function RoomOverView() {
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/rooms/${roomId}`)
       .then((res) => {
         setRoom(res.data.roomsData);
+        console.log(res.data.roomsData);
         setLoaded(true); // Set loading to true after data is fetched
       })
       .catch((err) => {
@@ -45,14 +47,8 @@ export default function RoomOverView() {
           room ? (
             <div className="flex flex-col sm:flex-row gap-8 max-w-7xl mx-auto">
               {/* Room Image */}
-              <div className="w-full sm:w-[90%]">
-                <img
-                  src={
-                    room?.photos?.length > 0 ? room.photos[0] : "default.jpg"
-                  }
-                  alt="Room"
-                  className="rounded-xl shadow-xl w-full h-[400px] object-cover"
-                />
+              <div className="w-full sm:w-[71%]">
+                <ImageSlider allImages={room.photos} />
               </div>
 
               {/* Room Details */}

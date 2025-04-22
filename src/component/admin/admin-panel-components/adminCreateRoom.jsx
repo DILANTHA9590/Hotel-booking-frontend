@@ -5,9 +5,9 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 export default function AdminCreateRoom() {
-  const [roomId, setRoomId] = useState("");
-  const [category, setCategory] = useState("Standard");
-  const [maxGuests, setMaxGuests] = useState(1);
+  const [roomId, setRoomId] = useState("RI00");
+  const [category, setCategory] = useState("Luxury");
+  const [maxGuests, setMaxGuests] = useState(2);
   const [available, setAvailable] = useState(true);
   const [image, setImage] = useState([]);
   const [specialsDescriptions, setSpecialsDescriptions] = useState("");
@@ -30,6 +30,7 @@ export default function AdminCreateRoom() {
       }
       setloaded(true);
       const imgUrl = await Promise.all(promiseArrey);
+      console.log(imgUrl);
       setloaded(false);
 
       const roomData = {

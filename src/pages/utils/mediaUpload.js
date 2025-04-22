@@ -14,14 +14,15 @@ export default function uplaodMediaSuperbase(file) {
     console.log(fileName);
     const extention = fileName.split(".")[fileName.split(".").length - 1];
 
-    if (extention != "jpg" && extention != "png") {
+    if (extention != "jpg" && extention != "png" && extention != "jpeg") {
       alert("please select jpg or png file type");
     }
     const supabase = createClient(url, key);
 
     const timesstamp = new Date().getTime();
+    const randomNumber = Math.floor(Math.random() * 5000) + 1;
 
-    fileName = timesstamp + "." + extention;
+    fileName = timesstamp + randomNumber + "." + extention;
 
     supabase.storage
       .from("images")

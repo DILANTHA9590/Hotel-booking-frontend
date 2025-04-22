@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 export default function AdminLoginPage() {
   const [email, setEmail] = useState("");
@@ -68,6 +68,13 @@ export default function AdminLoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+
+              <p className="mt-10 text-white">
+                You don't have an account?{" "}
+                <Link to="/signup" className="text-blue-600">
+                  <strong>Create account</strong>
+                </Link>
+              </p>
 
               <button
                 className="bg-[#ff5748]  w-[80%] py-2 text-white font-bold absolute bottom-6 rounded-md"

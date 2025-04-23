@@ -18,7 +18,7 @@ export default function VerifyEmailForm() {
       .then((res) => {
         toast.success(res.data.message);
 
-        navigate("/");
+        navigate("/login");
       })
       .catch((error) => {
         toast.error("error", error.response.data);

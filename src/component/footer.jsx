@@ -49,9 +49,7 @@ export default function Footer() {
 
           <div class="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500 text-sm">
             © 2025 Hotelo. All rights reserved.
-            <h1 className="text-white text-[20px] animate-pulse">
-              Developed by Dilantha nayanajith © 2025
-            </h1>
+            <h1 className="text-white text-[20px] animate-pulse"></h1>
           </div>
         </div>
       </footer>

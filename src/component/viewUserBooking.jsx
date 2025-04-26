@@ -21,7 +21,7 @@ export default function ViewMyBooking() {
       })
       .then((res) => {
         toast.success(res.data.message);
-        setBookings(res.data.bookings);
+        setBookings(res.data.bookings || []);
         console.log(res.data.bookings);
       })
       .catch((error) => {

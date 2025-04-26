@@ -2,10 +2,14 @@ import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router";
+import { FaRegEye } from "react-icons/fa6";
+import { FaRegEyeSlash } from "react-icons/fa6";
 
 export default function AdminLoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(true);
+  console.log("passssssssss", showPassword);
 
   const navigate = useNavigate();
 
@@ -62,12 +66,19 @@ export default function AdminLoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
               />
               <input
-                type="password"
+                type={showPassword ? "password" : "text"}
                 className="  px-4 border  border-amber-50 bg-[#00000000] w-[80%]  placeholder:text-white rounded-sm py-3"
                 placeholder="Enter Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+
+              <button
+                onClick={() => setShowPassword(!showPassword)}
+                className="p-1"
+              >
+                {showPassword ? <FaRegEye /> : <FaRegEyeSlash />}
+              </button>
 
               <p className="mt-10 text-white">
                 You don't have an account?{" "}

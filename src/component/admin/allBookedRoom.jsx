@@ -8,6 +8,7 @@ export default function ExpireBookings() {
 
   const [expiredBookings, setExpiredBooking] = useState([]); // Ensure it's an empty array initially
 
+  const [loaded, setLoaded] = useState(false);
   const [update, setUpdate] = useState();
 
   useEffect(() => {
@@ -15,26 +16,29 @@ export default function ExpireBookings() {
     if (!token) {
       return navigate("/login");
     }
-
-    axios
-      .get(
-        import.meta.env.VITE_BACKEND_URL + "/api/booking/getexpirebookings",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
-      .then((res) => {
-        console.log(res);
-        setExpiredBooking(res.data.expiredBooking || []); // Ensure data is always an array
-      })
-      .catch((err) => {
-        console.error("Error fetching bookings:", err);
-      });
-  }, []);
+    if (!loaded) {
+      axios
+        .get(
+          import.meta.env.VITE_BACKEND_URL + "/api/booking/getexpirebookings",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res);
+          setExpiredBooking(res.data.expiredBooking || []); // Ensure data is always an array
+          setLoaded(true);
+        })
+        .catch((err) => {
+          console.error("Error fetching bookings:", err);
+        });
+    }
+  }, [loaded]);
 
   function updateRoomStatus(roomId, update) {
+    setLoaded(false);
     console.log(roomId);
     console.log(update);
     const token = localStorage.getItem("token");

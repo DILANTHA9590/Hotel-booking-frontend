@@ -122,15 +122,10 @@ export default function Header() {
         </div>
       </div>
       <section>
-        <Categories />
-      </section>
-
-      <section>
         <Services />
       </section>
-
       <section>
-        <Footer />
+        <Categories />
       </section>
     </>
   );

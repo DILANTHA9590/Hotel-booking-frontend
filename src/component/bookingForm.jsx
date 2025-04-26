@@ -28,6 +28,7 @@ export default function BookingForm() {
       return;
     }
     const token = localStorage.getItem("token");
+
     if (!token) {
       navigate("/login");
     }
@@ -38,7 +39,7 @@ export default function BookingForm() {
         },
       })
       .then((res) => {
-        // navigate("/mybooking");
+        navigate("/mybooking");
         console.log(res);
         toast.success(res.data.message);
         navigate("/mybooking");

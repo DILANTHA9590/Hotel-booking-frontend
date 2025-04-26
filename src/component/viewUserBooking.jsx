@@ -21,13 +21,13 @@ export default function ViewMyBooking() {
       })
       .then((res) => {
         toast.success(res.data.message);
+
         setBookings(res.data.bookings || []);
       })
       .catch((error) => {
         toast.error(
           error.response?.data?.message || "Failed to fetch bookings"
         );
-        console.log(error);
       });
   }, []);
 
